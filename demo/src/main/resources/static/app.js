@@ -24,3 +24,22 @@ document.addEventListener("DOMContentLoaded",()=>{
             console.error("There was a problem with the fetch operation:",error);
         })
 })
+
+//按钮添加事件-登录
+document.getElementById("login").addEventListener("click",()=>{
+    const user = document.getElementById("user");
+    const password = document.getElementById("password");
+
+    fetch('/user')
+        .then(response=>{
+            if(!response){
+                alert('error to fetch');
+                throw new Error('error'+response.statusText);
+            }
+            return response.json();
+        })
+        .then(response=>{
+            response.get
+        })
+
+})

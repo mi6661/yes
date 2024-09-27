@@ -24,3 +24,8 @@ document.addEventListener("DOMContentLoaded",()=>{
             console.error("There was a problem with the fetch operation:",error);
         })
 })
+
+//按钮添加事件-登录
+document.getElementById("login").addEventListener("click",()=>{
+    alert("successful");
+})
