@@ -13,8 +13,56 @@
         密码：<input id="password"><br>
     </form>
 
-    <button id="login">登录</button>
+    <button id="login">登录</button><button id="register">注册</button>
 
-    <script src="app.js"></script>
+    <script>
+        //添加按钮事件-注册
+        document.getElementById("register").addEventListener("click",()=>{
+            const user = document.getElementById("user");
+            const password = document.getElementById("password");
+
+            //向后端发送注册信息
+            const UserData = {
+                name : user,
+                password :password
+            };
+
+            fetch("/addUser",{
+                method: 'POST',
+                headers:{'Content-Type':'applicatiton/json'},
+                body: JSON.stringify(UserData)
+            }).then(res=>{
+
+            })
+
+        })
+
+        //按钮添加事件-登录
+        document.getElementById("login").addEventListener("click",()=>{
+            const user = document.getElementById("user");
+            const password = document.getElementById("password");
+
+            fetch('/user')
+                .then(response=>{
+                    if(!response){
+                        alert('error to fetch');
+                        throw new Error('error'+response.statusText);
+                    }
+
+                    const data = response.json();
+                    console.log(data);
+                    return data;
+                })
+                .then(data=>{
+                    console.log(data.id);
+                    console.log(data.name);
+                    console.log(data.password);
+                })
+                .catch(error=>{
+                    console.error("this is a error",error);
+                });
+
+        });
+    </script>
 </body>
 </html>

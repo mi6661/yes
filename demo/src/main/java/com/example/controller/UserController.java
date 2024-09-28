@@ -4,6 +4,7 @@ import com.example.model.Users;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,6 +21,13 @@ public class UserController {
 
     @GetMapping("/user")
     public Users getUser(){
-        return userService.getById(Long.parseLong("1"));
+        return userService.getByName("lisi");
+    }
+
+    
+
+    @RequestMapping("/addUser")
+    public String addUser(){
+        return "hello";
     }
 }

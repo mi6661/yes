@@ -20,8 +20,13 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    //2.通过用户名查找
+    //2.通过id查找
     public Users getById(Long id){
         return userRepository.findById(id).get();
+    }
+
+    //3.通过用户名查找
+    public Users getByName(String name){
+        return userRepository.findByName(name);
     }
 }
